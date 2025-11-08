@@ -1,7 +1,6 @@
 package com.sillas.sillas.controller;
 
 import com.sillas.sillas.config.TokenConfig;
-import com.sillas.sillas.entities.User;
 import com.sillas.sillas.entities.dto.LoginRequest;
 import com.sillas.sillas.entities.dto.LoginResponse;
 import com.sillas.sillas.service.AuthService;

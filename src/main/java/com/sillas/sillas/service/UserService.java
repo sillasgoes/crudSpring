@@ -2,21 +2,15 @@ package com.sillas.sillas.service;
 
 import com.sillas.sillas.config.TokenConfig;
 import com.sillas.sillas.entities.Role;
-import com.sillas.sillas.entities.User;
-import com.sillas.sillas.entities.dto.RegisterRequest;
-import com.sillas.sillas.entities.dto.RegisterResponse;
 import com.sillas.sillas.entities.dto.UserDto;
 import com.sillas.sillas.repository.UserRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -25,9 +19,6 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
-    private final AuthenticationManager authenticationManager;
-    private final TokenConfig tokenConfig;
 
     public List<UserDto> allUsers() {
 

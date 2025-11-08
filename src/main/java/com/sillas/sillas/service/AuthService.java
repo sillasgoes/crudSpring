@@ -17,7 +17,6 @@ public class AuthService {
 
     private final AuthenticationManager authenticationManager;
     private final TokenConfig tokenConfig;
-    private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
     public String login(LoginRequest request) {
