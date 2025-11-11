@@ -1,4 +1,4 @@
-package com.sillas.sillas.config;
+package com.sillas.sillas.config.security;
 
 
 import com.sillas.sillas.repository.UserRepository;

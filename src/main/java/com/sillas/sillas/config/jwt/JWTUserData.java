@@ -1,4 +1,4 @@
-package com.sillas.sillas.config;
+package com.sillas.sillas.config.jwt;
 
 import lombok.Builder;
 

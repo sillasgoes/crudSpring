@@ -1,4 +1,4 @@
-package com.sillas.sillas.config;
+package com.sillas.sillas.config.jwt;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -12,6 +12,12 @@ import java.util.Optional;
 
 @Component
 public class TokenConfig {
+
+    /*
+    Aqui criaremos o token e selando ele informações e algoritmos para dar mais segurança
+    a aplicação. Neste caso usaremos uma palavra secreta, porém o ideal é sempre usar
+    pares de chaves(publica e privada)
+     */
 
     private final String secret = "secret";
 

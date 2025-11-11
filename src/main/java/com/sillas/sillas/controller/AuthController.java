@@ -1,6 +1,6 @@
 package com.sillas.sillas.controller;
 
-import com.sillas.sillas.config.TokenConfig;
+import com.sillas.sillas.config.jwt.TokenConfig;
 import com.sillas.sillas.entities.dto.LoginRequest;
 import com.sillas.sillas.entities.dto.LoginResponse;
 import com.sillas.sillas.service.AuthService;
@@ -25,5 +25,4 @@ public class AuthController {
         var token = authService.login(request);
         return new LoginResponse(token);
     }
-
 }

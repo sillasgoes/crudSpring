@@ -1,5 +1,7 @@
-package com.sillas.sillas.config;
+package com.sillas.sillas.config.security;
 
+import com.sillas.sillas.config.jwt.JWTUserData;
+import com.sillas.sillas.config.jwt.TokenConfig;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,6 +20,13 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class SecurityFilter extends OncePerRequestFilter {
 
+    /*
+    OncePerRequest é usado para autenticar requisições uma vez por requisição, ou seja,
+    a cada chamada podemos verificar o conteúdo e a procedência, exemplo mais pratico é o
+    JWT, com o usuário logado e adquirido o seu token, toda requisição que ele fizer podemos autenticar
+    e verificar se ele esta autorizado e quais os níveis de autorização que ele possui no sistema
+
+     */
     private final TokenConfig tokenConfig;
 
     @Override
@@ -25,7 +34,7 @@ public class SecurityFilter extends OncePerRequestFilter {
                                     HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
     String authorize = request.getHeader("Authorization");
 
-        if(Strings.isNotEmpty(authorize) && !authorize.startsWith("Bearer ")) {
+        if(Strings.isNotEmpty(authorize) && authorize.startsWith("Bearer ")) {
             String token = authorize.substring("Bearer ".length());
             Optional<JWTUserData> optUser = tokenConfig.validadeToken(token);
 

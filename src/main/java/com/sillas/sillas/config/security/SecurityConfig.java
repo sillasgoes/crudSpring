@@ -1,4 +1,4 @@
-package com.sillas.sillas.config;
+package com.sillas.sillas.config.security;
 
 
 import jakarta.servlet.DispatcherType;
@@ -21,6 +21,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 @EnableWebSecurity
 public class SecurityConfig {
+
+    /*
+    Aqui definiremos regras para a nossa autenticação como, por exemplo, definir quais rotas
+    podem ou não ser acessadas com autenticação. Aqui também colocaremos o nosso filtro por
+    requisição, indicando que toda a vez que for chamado qualquer requisição vamos autenticar com
+    JWT.
+     */
 
     private final SecurityFilter securityFilter;
 

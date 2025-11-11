@@ -1,9 +1,8 @@
 package com.sillas.sillas.service;
 
-import com.sillas.sillas.config.TokenConfig;
+import com.sillas.sillas.config.jwt.TokenConfig;
 import com.sillas.sillas.entities.User;
 import com.sillas.sillas.entities.dto.LoginRequest;
-import com.sillas.sillas.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
