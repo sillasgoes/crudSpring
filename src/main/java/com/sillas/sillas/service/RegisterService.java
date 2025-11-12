@@ -6,6 +6,7 @@ import com.sillas.sillas.entities.dto.RegisterRequest;
 import com.sillas.sillas.entities.dto.RegisterResponse;
 import com.sillas.sillas.repository.RoleRepository;
 import com.sillas.sillas.repository.UserRepository;
+import com.sillas.sillas.service.exception.UserAlreadyRegisteredException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -31,7 +32,9 @@ public class RegisterService {
 
         userRepository.findByUsername(user.username())
                 .ifPresentOrElse(
-                (u) -> { throw new ResponseStatusException(HttpStatus.CONFLICT);},
+                (u) -> {
+                    throw new UserAlreadyRegisteredException(u.getUsername());
+                },
                 () -> {
                     tUser.setUsername(user.username());
                     tUser.setPassword(passwordEncoder.encode(user.password()));
@@ -42,4 +45,5 @@ public class RegisterService {
 
         return new RegisterResponse(tUser.getUsername());
     }
+
 }

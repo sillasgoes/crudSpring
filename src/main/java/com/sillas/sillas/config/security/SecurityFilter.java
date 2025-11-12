@@ -22,9 +22,9 @@ public class SecurityFilter extends OncePerRequestFilter {
 
     /*
     OncePerRequest é usado para autenticar requisições uma vez por requisição, ou seja,
-    a cada chamada podemos verificar o conteúdo e a procedência, exemplo mais pratico é o
-    JWT, com o usuário logado e adquirido o seu token, toda requisição que ele fizer podemos autenticar
-    e verificar se ele esta autorizado e quais os níveis de autorização que ele possui no sistema
+    a cada chamada podemos verificar o conteúdo e a procedência, exemplo mais prático é o
+    JWT, com o usuário logado e adquirido o seu token, todas as requisições que ele fizer podemos autenticar
+    e verificar se ele está autorizado e quais os níveis de autorização que ele possui no sistema
 
      */
     private final TokenConfig tokenConfig;

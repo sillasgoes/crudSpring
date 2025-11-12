@@ -1,0 +1,15 @@
+package com.sillas.sillas.service.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice
+public class UserExceptionHandler {
+
+    @ExceptionHandler
+    ResponseEntity<String> handleException(UserAlreadyRegisteredException e) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+    }
+}

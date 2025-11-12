@@ -20,17 +20,17 @@ public class UserService {
 
          return userRepository.findAll()
                  .stream()
-                 .map((user) ->
+                 .map(user ->
                             new UserDto(
                              user.getUser_id(),
                              user.getUsername(),
                              user.getRoles())).toList();
     }
 
-    public Page<UserDto> allUserPage(int page, int pageSize){
+     public Page<UserDto> allUserPage(int page, int pageSize){
         return userRepository
                 .findAll(PageRequest.of(page, pageSize, Sort.Direction.DESC))
-                .map((user) ->
+                .map(user ->
                         new UserDto(user.getUser_id(),
                                 user.getUsername(),
                                 user.getRoles()));
